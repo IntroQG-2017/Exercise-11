@@ -1,16 +1,18 @@
-# river_profiles.py
-#
-# This script calculates bedrock river profiles as a function of rock uplift
-# rate and various stream-power erosion law parameters.
-#
-# User-defined variables are listed at the top of the script.
-#
-# This code is based on a similar MATLAB code written by Brian Yanites and
-# Todd Ehlers.
-#
-# Dave Whipp - 13.04.16
+"""
+river_profiles.py
 
-# Import NumPy, Matplotlib and system libraries
+This script calculates bedrock river profiles as a function of rock uplift
+rate and various stream-power erosion law parameters.
+
+User-defined variables are listed at the top of the script.
+
+This code is based on a similar MATLAB code written by Brian Yanites and
+Todd Ehlers.
+
+@author: Dave Whipp - 14.11.2016
+"""
+
+# Import NumPy, Matplotlib and system modules
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import animation
@@ -29,8 +31,8 @@ def update_topo(topography, dhdt, dx, K, area, m, n, uplift, dt, dtplot):
 
 # Define function to animate river profile elevations
 def animate(i, topography, dhdt, dx, K, area, m, n, uplift, dt, dtplot, plottime):
-    topography,dhdt=update_topo(topography, dhdt, dx, K, area, m, n, uplift,    # Update elevations on river profile
-                               dt, dtplot)
+    # Update elevations on river profile
+    topography,dhdt=update_topo(topography, dhdt, dx, K, area, m, n, uplift,dt, dtplot)
     timenow = plottime[i]                                      # Set timenow to current model time
     elevmax = max(topography)                                  # Calculate maximum elevation of river profile
     plot1.set_ydata(topography)                                # Update plot topography
@@ -44,8 +46,6 @@ def animate(i, topography, dhdt, dx, K, area, m, n, uplift, dt, dtplot, plottime
     #
     return plot1,                                              # Return updated plot
 
-# Main program code below
-
 #--- USER-DEFINED VARIABLES BELOW -----------------------------------------#
 max_elevation = 1500.0      # Maximum elevation for initial topography [m]
 min_elevation = 0.0         # Minimum elevation for initial topography [m]
@@ -54,7 +54,7 @@ dx = 1000.0                 # Spacing of points along profile for elevation calc
 topo_option = 2             # Flag for initial topography; 1 = Constant slope, 2 = Flat
 simulation_time = 2000000.0 # Total simulation time [a]
 dt = 2.0                    # Time step size for profile calculations [a]
-dtplot = 2000.0            # Time step for displaying plots [a]
+dtplot = 2000.0             # Time step for displaying plots [a]
 
 # EROSIONAL CONSTANTS
 m = 1.0               # Area exponent
@@ -109,12 +109,17 @@ axis1 = plt.subplot(1,1,1)                  # Set axis1 as the first plot
 axis1.set_xlim([0.0, max(xkm)])             # Set the x-axis limits for plot 1
 axis1.set_ylim([0.0, max_elevation*1.1])    # Set the y-axis limits for plot 1
 plot1, = plt.plot(xkm, topography)          # Define plot1 as the first plot
+
+# Add axis labels and title
 plt.xlabel("Distance from drainage divide [km]")
 plt.ylabel("River channel elevation [m]")
 plt.title("River channel profile evolution model")
-# Define time for display on plot
+
+# Define starting time for display on plot (value updated in animate() function)
 timenow = 0.0
 timetext = plt.text(70.,max_elevation*0.9, str(timenow)+" years")
+
+# Define starting max elevation for display on plot (value updated in animate() function)
 elevmax = max(topography)
 elevtext = plt.text(70., max_elevation*0.8, "Max elev: {0:.1f} m".format(elevmax))
 
@@ -128,4 +133,6 @@ anim = animation.FuncAnimation(fig, animate, range(len(plottime)),
                               fargs=(topography, dhdt, dx, K, area, m, n,
                               uplift, dt, dtplot, plottime), interval=20,
                               blit=False, repeat=False)
+
+# Display plot
 plt.show()
