@@ -1,7 +1,7 @@
 # Exercise 11: River advection
 
 ## Sources
-This tutorial is based on a MATLAB exercise from [Prof. Todd Ehlers (Uni Tübingen)](http://www.geo.uni-tuebingen.de/?id=2183) and [Prof. Brian Yanites (Uni Indiana)](http://www.geology.indiana.edu/yanites/index.html).
+This tutorial is based on a MATLAB exercise from [Prof. Todd Ehlers (University of Tübingen, Germany)](http://www.geo.uni-tuebingen.de/?id=2183) and [Prof. Brian Yanites (University of Indiana, USA)](http://www.geology.indiana.edu/yanites/index.html).
 
 ## Overview
 For the exercises this week, we will be applying the advection equation to bedrock river erosion with a spatially variable advection coefficient (stream-power erosion).
