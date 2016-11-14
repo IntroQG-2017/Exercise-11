@@ -1,42 +1,40 @@
-# Lab-exercise-4
+# Exercise 11: River advection
 
 ## Sources
-This tutorial is based on a MATLAB exercise from [Prof. Todd Ehlers (Uni Tübingen)](http://www.geo.uni-tuebingen.de/?id=2183) and [Prof. Brian Yanites (Uni Idaho)](https://www.uidaho.edu/sci/geology/people/faculty/byanites).
+This tutorial is based on a MATLAB exercise from [Prof. Todd Ehlers (Uni Tübingen)](http://www.geo.uni-tuebingen.de/?id=2183) and [Prof. Brian Yanites (Uni Indiana)](http://www.geology.indiana.edu/yanites/index.html).
 
 ## Overview
-For the exercises this week, we will be applying the advection equation to bedrock river erosion with a spatially variable advection coefficient (stream-power erosion). You are asked to modify an starter Python script to produce plots and to answer questions related to the plots. As before, we will be using **Spyder** for these exercises.
-
-## Getting started
-1. You can start by making a folder to store files for this week's exercises in a Terminal.
-
-    ```bash
-    $ cd Desktop
-    $ mkdir Lab-4
-    $ cd Lab-4
-    ```
-**Reminder**: the `$` symbol above represents the command prompt in the Terminal window.
-2. Now you can open **Spyder**.
-
-    ```bash
-    $ spyder
-    ```
-
-Now we are ready to start.
+For the exercises this week, we will be applying the advection equation to bedrock river erosion with a spatially variable advection coefficient (stream-power erosion).
+You are asked to modify an starter Python script to produce plots and to answer questions related to the plots.
 
 ## Problem 1 - Introduction to river profile evolution
-For this exercise we will be using the Python script [`river_profiles.py`](river_profiles.py) to plot river profiles. The script performs all of the basic calculations needed to answer the questions below, but you will need to make some changes to the script to complete the exercise. To begin, download a copy the [`river_profiles.py`](river_profiles.py) file to your `Lab-4` directory and open it in **Spyder**.
+For this exercise we will be using the Python script [`river_profiles.py`](river_profiles.py) to plot river profiles.
+The script performs all of the basic calculations needed to answer the questions below, but you will need to make some changes to the script to complete the exercise.
+To begin, download a copy the [`river_profiles.py`](river_profiles.py) file and open it in **Spyder**.
 
 ### Part 1 - Examining the code
-The program simulates river incision into a 100-km-wide landscape with an initial flat surface elevation of 1500 m. River incision is calculated using the stream-power erosion equations described in [Lecture 7](https://github.com/Intro-Quantitative-Geology/Lecture-slides/blob/master/07-Advection-of-the-Earths-surface/07-Advection-of-the-Earths-surface.pdf). For this part you should do the following:
+The program simulates river incision into a 100-km-wide landscape with an initial flat surface elevation of 1500 m.
+River incision is calculated using the stream-power erosion equations described in the [lecture slides for this week](https://github.com/Intro-Quantitative-Geology/Lesson-11-Advection-of-Earths-surface/blob/master/Lesson/Advection-of-the-Earths-surface.pdf).
+For this part you should do the following:
 
-1. Carefully read over the Python source code and comments. There are some new features in this code, so pay attention to where the variables are defined and used, how the initial topography is defined, how the upstream drainage basin area is calculated, how surface elevation is calculated and how the results are plotted.
-2. Without making any changes, run the program and save a copy of the plot it produces. The program will take about 1 minute to run. **Add your plot at the end of your version of this document and include a figure caption explaining what the plot shows**.
-3. Look again through the Python code and the plot it produces. Answer the following questions in the space beneath the plot and caption you've inserted.
+1. Carefully read over the Python source code and comments.
+There are some new features in this code, so pay attention to where the variables are defined and used, how the initial topography is defined, how the upstream drainage basin area is calculated, how surface elevation is calculated and how the results are plotted.
+2. Without making any changes, run the program and save a copy of the plot it produces.
+The program will take about 1 minute to run.
+**Add your plot at the end of your version of this document and include a figure caption explaining what the plot shows**.
+3. Look again through the Python code and the plot it produces.
+Answer the following questions in the space beneath the plot and caption you've inserted.
   - **How long is the time step in the calculation?**
-  - **What is the rock uplift rate in the model? Is it constant or does it vary with space in the model?**
-  - **What is the maximum elevation of the topography at the end of the simulation? Is this higher or lower than the original maximum elevation? Why?**
-  - **Does the maximum elevation continually increase with time, or does it also decrease? Why might this be? Does the river profile appear to reach a steady state?**
-  - **How fast (at what velocity) does the drainage divide (highest point in the topography) migrate across the model?** To calculate this value, you should run the model several times for shorter simulation times, note the position of the divide at the completion of the simulation and then calculate the velocity (distance travelled divided by time).
+  - **What is the rock uplift rate in the model?
+  Is it constant or does it vary with space in the model?**
+  - **What is the maximum elevation of the topography at the end of the simulation?
+  Is this higher or lower than the original maximum elevation?
+  Why?**
+  - **Does the maximum elevation continually increase with time, or does it also decrease?
+  Why might this be?
+  Does the river profile appear to reach a steady state?**
+  - **How fast (at what velocity) does the drainage divide (highest point in the topography) migrate across the model?**
+  To calculate this value, you should run the model several times for shorter simulation times, note the position of the divide at the completion of the simulation and then calculate the velocity (distance travelled divided by time).
 
 ### Part 2 - Subplots and erosion rates
 This program calculates erosion rates across the length of the channel as a function of time in order to update the topography at the end of each time step. Currently, the program only plots the topography. For this part of the exercise, your goal is to plot both the topography and erosion rates on separate plots. This can be done using the `plt.subplot()` function to add a second plot beneath the existing plot. Currently, the first plot is created in the Python script using the commands
