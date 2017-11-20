@@ -79,8 +79,8 @@ upliftRate = 0.001    # Rock uplift rate [m/a]
 xPoints = int(xLength/dx)                    # Number of points for x array
 x = np.linspace(0.0, xLength, xPoints + 1)   # Define x array from 0 to L by dx
 uplift = np.zeros(len(x)) + upliftRate       # Create rock uplift array with constant uplift rate
-xkm = x / 1000.0                              # Create xkm array with x values converted to km
-dhdt = np.zeros(len(x))                       # Erosion rate array, same size as x
+xkm = x / 1000.0                             # Create xkm array with x values converted to km
+dhdt = np.zeros(len(x))                      # Erosion rate array, same size as x
 
 # SELECT INPUT TOPOGRAPHY
 # OPTION 1: Initial topography is a sloping surface
@@ -96,7 +96,7 @@ else:
     sys.exit()
 
 # Calculate drainage basin area as a function of distance from divide x
-area = ka*x**h
+area = ka * x**h
 area[0] = area[1]
 
 # Fill values for time and plottime arrays
@@ -107,9 +107,9 @@ plotTime = np.linspace(0.0, simulationTime, int(simulationTime / dtPlot + 1))
 fig = plt.figure()
 
 # Format subplot 1
-axis1 = plt.subplot(1,1,1)                  # Set axis1 as the first plot
+axis1 = plt.subplot(1, 1, 1)                # Set axis1 as the first plot
 axis1.set_xlim([0.0, max(xkm)])             # Set the x-axis limits for plot 1
-axis1.set_ylim([0.0, maxElevation*1.1])    # Set the y-axis limits for plot 1
+axis1.set_ylim([0.0, maxElevation*1.1])     # Set the y-axis limits for plot 1
 plot1, = plt.plot(xkm, topography)          # Define plot1 as the first plot
 
 # Add axis labels and title
