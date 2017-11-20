@@ -14,20 +14,20 @@ To begin, download a copy the [`river_profiles.py`](river_profiles.py) file and 
 
 ### Part 1 - Examining the code
 The program simulates river incision into a 100-km-wide landscape with an initial flat surface elevation of 1500 m.
-River incision is calculated using the stream-power erosion equations described in the [lecture slides for this week](https://github.com/Intro-Quantitative-Geology/Lesson-11-Advection-of-Earths-surface/blob/master/Lesson/Advection-of-the-Earths-surface.pdf).
+River incision is calculated using the stream-power erosion equations described in the [lecture slides for this week](https://introqg.github.io/2017/_static/slides/L11/Advection-lecture-slides.pdf).
 For this part you should do the following:
 
 1. Carefully read over the Python source code and comments.
-There are some new features in this code, so pay attention to where the variables are defined and used, how the initial topography is defined, how the upstream drainage basin area is calculated, how surface elevation is calculated and how the results are plotted.
+There are some new features in this code, so pay attention to where the variables are defined and used, how the initial topography is defined, how the upstream drainage basin area is calculated, how surface elevation is calculated, and how the results are plotted.
 2. Without making any changes, run the program and save a copy of the plot it produces.
 The program will take about 1 minute to run.
 **Add your plot at the end of your version of this document and include a figure caption explaining what the plot shows**.
 3. Look again through the Python code and the plot it produces.
 Answer the following questions in the space beneath the plot and caption you've inserted.
-  - **How long is the time step in the calculation?**
-  - **What is the rock uplift rate in the model?
-  Is it constant or does it vary with space in the model?**
-  - **What is the maximum elevation of the topography at the end of the simulation?
+    - **How long is the time step in the calculation?**
+    - **What is the rock uplift rate in the model?
+    Is it constant or does it vary with space in the model?**
+    - **What is the maximum elevation of the topography at the end of the simulation?
   Is this higher or lower than the original maximum elevation?
   Why?**
   - **Does the maximum elevation continually increase with time, or does it also decrease?
